@@ -4,6 +4,7 @@ import "dotenv/config";
 
 import mongoose from "mongoose";
 import userRoutes from "./routes/users";
+import authRoutes from "./routes/auth";
 
 mongoose.connect(process.env.MONGOBD_CONNECTION_STRING as string);
 
@@ -15,9 +16,9 @@ app.use(cors());
 // app.get("/api/test", async (req: Request, res: Response) => {
 //   res.json({ message: "Hey Faotu, this is from express" });
 // });
-
+app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
 
 app.listen(5000, () => {
-  console.log("server is running on local:5000");
+  console.log("server is running on localhost:5000");
 });
