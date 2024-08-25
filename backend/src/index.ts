@@ -8,6 +8,7 @@ import authRoutes from "./routes/auth";
 import cookieParser from "cookie-parser";
 
 import { v2 as cloudinary } from "cloudinary";
+import myHotelRoutes from "./routes/my-hotels";
 
 cloudinary.config({
   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
@@ -33,6 +34,7 @@ app.use(
 // });
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes);
+app.use("/api/my-hotels", myHotelRoutes);
 
 app.listen(5000, () => {
   console.log("server is running on localhost:5000");
