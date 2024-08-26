@@ -1,3 +1,4 @@
+import { HotelFormData } from "./forms/ManageHotelForm/ManageHotelForm";
 import { SignInFormData } from "./pages/Sign-In";
 import { RegisterFormData } from "./pages/Register";
 
@@ -58,4 +59,17 @@ export const signOut = async () => {
   if (!response.ok) {
     throw new Error("There was an error during signout");
   }
+};
+
+export const addMyHotel = async (HotelFormData: FormData) => {
+  const response = await fetch(`${API_BASE_URL}/api/my-hotels`, {
+    method: "POST",
+    credentials: "include",
+    body: HotelFormData,
+  });
+  if (!response.ok) {
+    throw new Error("Failed to add new hotel");
+  }
+
+  return response.json();
 };

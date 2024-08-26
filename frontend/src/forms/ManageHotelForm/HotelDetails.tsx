@@ -57,7 +57,7 @@ const HotelDetails = () => {
         )}
       </label>
 
-      <label className="text-gray-700 text-sm font-bold flex-1">
+      <label className="text-gray-700 text-sm font-bold max-w-[50%]">
         Price per Night{" "}
         <input
           type="number"
@@ -69,6 +69,24 @@ const HotelDetails = () => {
         ></input>
         {errors.pricePerNight && (
           <span className="text-red-600">{errors.pricePerNight.message}</span>
+        )}
+      </label>
+
+      <label className="text-gray-700 text-sm font-bold max-w-[50%]">
+        Star Ratings{" "}
+        <select
+          {...register("starRating", { required: "Star ratings is required" })}
+          className="border rounded w-full p-2 text-gray-700 font-normal"
+        >
+          <option value="" className="text-sm font-bold">
+            Select Star Ratings
+          </option>
+          {[1, 2, 3, 4, 5].map((num) => (
+            <option value={num}>{num}</option>
+          ))}
+        </select>
+        {errors.starRating && (
+          <span className="text-red-600">{errors.starRating.message}</span>
         )}
       </label>
     </div>
