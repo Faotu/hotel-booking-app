@@ -28,7 +28,6 @@ router.post(
       .notEmpty()
       .isNumeric()
       .withMessage("price must be a number"),
-    body("").notEmpty().withMessage("description is required"),
     body("facilities")
       .notEmpty()
       .isArray()
