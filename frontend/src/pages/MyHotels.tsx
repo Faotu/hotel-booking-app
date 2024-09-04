@@ -57,6 +57,7 @@ const MyHotels = () => {
                 {hotel.starRating} Star Rating
               </div>
             </div>
+
             <span className="flex justify-end">
               <Link
                 to={`/edit-hotel/${hotel._id}`}
